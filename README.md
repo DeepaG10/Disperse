@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Disperse React Component
+React Logo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Disperse React component is a versatile tool that allows users to manage and process lists of addresses and corresponding amounts. This component provides a simple user interface for input validation, deduplication of addresses, and balance aggregation.
 
-## Available Scripts
+# Features
+* Input Validation: Validates user input to ensure that addresses and amounts are correctly formatted.
+* Keep First Occurrence: Removes duplicate addresses, retaining only the first occurrence.
+* Combine Balances: Aggregates the balances of addresses that appear multiple times.
+  
+# Usage
+* Clone or download the repository to your local machine.
+* Navigate to the project directory.
+* Install the required dependencies using npm or yarn:
 
-In the project directory, you can run:
+bash
+```
+npm install
+# or
+yarn install
+```
+* Start the development server:
 
-### `npm start`
+bash
+```
+npm start
+# or
+yarn start
+```
+* Access the application in your web browser at http://localhost:3000.
+* In the textarea provided, enter addresses and corresponding amounts. Each address and amount should be separated by a space, and each pair should be on a separate line. For example:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+0x8B3392483BA26D65E331dB86D4F430E9B3814E5e 15
+0x2C1BbAa9B34b5D8A6E850a6A734FBa705F34a3aC 25
+```
+* Click the "Submit" button to validate and process the input.
+* If there are any validation errors, they will be displayed below the textarea.
+* Use the "Keep First Occurrence" button to remove duplicate addresses, keeping only the first occurrence.
+* Use the "Combine Balances" button to sum the balances of addresses that occur multiple times.
+* The addresses and their corresponding amounts will be displayed in a list below the buttons.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Installation
+If you wish to integrate the Disperse component into your existing React project, follow these steps:
 
-### `npm test`
+* Install the package via npm or yarn:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+```
+npm install @your-organization/disperse-component
+# or
+yarn add @your-organization/disperse-component
+```
+* Import the component in your React application:
 
-### `npm run build`
+javascript
+```
+import Disperse from "@your-organization/disperse-component";
+```
+* Utilize the Disperse component within your application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Getting Started with Development
+To get started with development on this component, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Clone the repository to your local machine:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+bash
+```
+git clone https://github.com/your-username/disperse-component.git
+```
+* Navigate to the project directory:
+ 
+bash
+```
+cd disperse-component
+```
+* Install the required dependencies:
 
-### `npm run eject`
+bash
+```
+npm install
+# or
+yarn install
+```
+* Start the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+bash
+```
+npm start
+# or
+yarn start
+```
+* You can now make modifications to the `Disperse` component and test them in a local development environment.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Address Validation
+The component employs a basic regular expression for address validation. You can replace it with more robust validation logic as required. Here's the validation function used in the component:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+javascript
+```
+const isValidAddress = (address) => {
+  return /^0x[a-fA-F0-9]{40}$/.test(address);
+};
+```
+# License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Author
+Author: Deepa Gupta
+Email: deepa403246@gmail.com
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
