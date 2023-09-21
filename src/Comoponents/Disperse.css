@@ -4,7 +4,7 @@
   border-radius: 5px;
   color: black;
   font-weight: bold;
-  width: 50%;
+  width: 55%;
   height: 30vh;
   padding: 20px;
   line-height: 25px;
@@ -15,18 +15,30 @@
 button {
   background: blueviolet;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 20px;
   border-radius: 5px;
   color: white;
-  margin: 20px;
+  margin: 2% 0;
+  width: 59%;
 }
 #error {
   color: red;
-  margin: auto;
+  margin: 2% auto;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid red;
-  width: 50%;
+  width: 57%;
+  display: flex;
+}
+#success {
+  color: green;
+  font-weight: 800;
+  margin: 2% auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(3, 97, 3);
+  box-shadow: 2px 3px 4px rgb(1, 56, 1);
+  width: 57%;
 }
 ul {
   list-style-type: none;
@@ -35,3 +47,32 @@ li {
   font-weight: bold;
   line-height: 25px;
 }
+.btn {
+  background: transparent;
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+.outer {
+  display: flex;
+  margin: 0 auto -2%;
+  align-items: center;
+  justify-content: space-between;
+  width: 58%;
+}
+.outer p {
+  color: red;
+}
+hr {
+  width: 0.8px;
+  height: 20px;
+  background: red;
+  margin: 0 20px;
+}
+.btn_one {
+  display: flex;
+}
+ol {
+  padding: 0 43% 0 23%;
+}
+
