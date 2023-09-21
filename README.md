@@ -1,19 +1,19 @@
 # Disperse React Component
 
 * Submit : On submit will validate with the inputs & throws an error if any, examples shown below - 
-<img width="798" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/3e1c0621-5396-408a-bb21-dcdde7692cae">
+<img width="805" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/09d100e1-3350-42a8-85c8-a1ff915098c6">
 
 * Success :
-<img width="806" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/e4557330-f712-4d75-b1d4-777da55f2537">
+<img width="805" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/c067c8b9-eb79-4f37-b933-f71af3f3ffd0">
 
 * Duplictaed :
-<img width="802" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/450d6264-2147-48d8-81d2-b20a1a7540f9">
+<img width="800" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/f9c9e034-08ac-416a-97fe-77a0d0dd47bb">
 
 * Keep First Occurrence : This method will keep the first occurrence & remove others duplicates. Example -
-<img width="808" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/0848d656-b4dd-4564-8df2-5f8c9d3f4918">
+<img width="801" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/9ca7b06c-318a-48a1-b746-c469c94bea48">
 
 * Combine Balances : This method will combines all duplicated addresses amount. Example -
-<img width="804" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/31d00c58-71bb-4598-9423-4b81987203f2">
+<img width="800" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/0e11f817-e026-4c48-bb5d-b566453eaa1c">
 
 The Disperse React component is a versatile tool that allows users to manage and process lists of addresses and corresponding amounts. This component provides a simple user interface for input validation, deduplication of addresses, and balance aggregation.
 
