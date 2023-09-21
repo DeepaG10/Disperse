@@ -28,7 +28,7 @@ button {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid red;
-  width: 58%;
+  width: 56%;
   display: flex;
 }
 #success {
