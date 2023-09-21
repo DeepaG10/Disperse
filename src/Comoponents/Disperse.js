@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import "../Comoponents/Disperse.css";
 
 const Disperse = () => {
-  const [inputText, setInputText] = useState([]);
+  const [inputText, setInputText] = useState("");
   const [error, setError] = useState(null);
   const [isError, setIsError] = useState(null);
   const [addresses, setAddresses] = useState([]);
   const [amounts, setAmounts] = useState([]);
+
+  const handleTextareaChange = (event) => {
+    const newText = event.target.value;
+    setInputText(newText);
+  };
 
   useEffect(() => {
     let duplicate = [];
@@ -110,21 +115,29 @@ const Disperse = () => {
   };
 
   const isValidAddress = (address) => {
-    // Replace this with your address validation logic (e.g., using a regular expression)
     return /^0x[a-fA-F0-9]{40}$/.test(address);
   };
+
+  const lineNumbers = inputText
+    .split("\n")
+    .map((line, index) => <div key={index + 1}>{index + 1}</div>);
 
   return (
     <div>
       <h2>Disperse Component</h2>
       <form onSubmit={handleSubmit}>
-        <textarea
-          id="textarea"
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-          placeholder="Enter addresses and amounts (e.g., 0x8B3392483BA26D65E331dB86D4F430E9B3814E5e 15)"
-        />
-
+        <div className="LineNumberedTextarea">
+          <div className="lineNumbers">{lineNumbers}</div>
+          <div className="line"></div>
+          <div className="textareaContainer">
+            <textarea
+              id="textarea"
+              value={inputText}
+              onChange={handleTextareaChange}
+              placeholder="Enter addresses and amounts (e.g., 0x8B3392483BA26D65E331dB86D4F430E9B3814E5e 15)"
+            />
+          </div>
+        </div>
         {isError && isError !== null && (
           <div className="outer">
             <p className="">Duplicated</p>
@@ -167,6 +180,10 @@ const Disperse = () => {
 };
 
 export default Disperse;
+
+  
+
+   
 
         
       
