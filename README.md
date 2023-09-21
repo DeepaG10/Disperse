@@ -3,6 +3,9 @@
 * Submit : On submit will validate with the inputs & throws an error if any, examples shown below - 
 <img width="798" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/3e1c0621-5396-408a-bb21-dcdde7692cae">
 
+* Success :
+<img width="806" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/e4557330-f712-4d75-b1d4-777da55f2537">
+
 * Duplictaed :
 <img width="802" alt="image" src="https://github.com/DeepaG10/disperse/assets/145286265/450d6264-2147-48d8-81d2-b20a1a7540f9">
 
