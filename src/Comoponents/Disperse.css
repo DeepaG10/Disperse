@@ -4,7 +4,7 @@
   border-radius: 5px;
   color: black;
   font-weight: bold;
-  width: 65%;
+  width: 61%;
   height: 30vh;
   padding: 20px 9px 20px 60px;
   line-height: 25px;
@@ -20,7 +20,7 @@ button {
   border-radius: 5px;
   color: white;
   margin: 2% 0;
-  width: 62%;
+  width: 59%;
 }
 #error {
   color: red;
@@ -28,7 +28,7 @@ button {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid red;
-  width: 61%;
+  width: 58%;
   display: flex;
 }
 #success {
@@ -38,8 +38,7 @@ button {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid rgb(3, 97, 3);
-  box-shadow: 2px 3px 4px rgb(1, 56, 1);
-  width: 61%;
+  width: 57%;
 }
 ul {
   list-style-type: none;
@@ -59,13 +58,13 @@ li {
   margin: 0 auto -2%;
   align-items: center;
   justify-content: space-between;
-  width: 62%;
+  width: 59%;
 }
 .outer p {
   color: red;
 }
 hr {
-  width: 0.8px;
+  width: 0.9px;
   height: 20px;
   background: red;
   margin: 0 20px;
