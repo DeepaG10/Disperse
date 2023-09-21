@@ -1,16 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Comoponents/Disperse.css";
 
 const Disperse = () => {
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState([]);
   const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(null);
   const [addresses, setAddresses] = useState([]);
   const [amounts, setAmounts] = useState([]);
+
+  useEffect(() => {
+    let duplicate = [];
+    for (let i = 0; i < addresses.length; i++) {
+      for (let j = i + 1; j < addresses.length; j++) {
+        if (addresses[i] === addresses[j]) {
+          setIsError(true);
+          let dup = `Address ${addresses[i]} Encountered Duplicate at Line: ${
+            i + 1
+          }, ${j + 1}   `;
+          duplicate.push(dup);
+        }
+      }
+    }
+    if (duplicate.length > 0) {
+      setError(duplicate);
+    }
+  }, [addresses]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const lines = inputText.trim().split("\n");
+    let lines;
+    if (inputText.includes(",")) {
+      lines = inputText.trim().split(",");
+    }
+    if (inputText.includes(",")) {
+      lines = inputText.trim().split("=");
+    } else {
+      lines = inputText.trim().split("\n");
+    }
+
     const newAddresses = [];
     const newAmounts = [];
     let newError = null;
@@ -28,20 +56,23 @@ const Disperse = () => {
         return;
       }
 
-      newAddresses.push(address);
+      newAddresses.push(`${address}`);
       newAmounts.push(parseFloat(amount));
     });
 
     if (newError) {
       setError(newError);
     } else {
-      setError(null);
+      setError("");
+      setIsError(false);
       setAddresses(newAddresses);
       setAmounts(newAmounts);
     }
   };
 
   const keepFirstOne = () => {
+    setError(null);
+    setIsError(false);
     const uniqueAddresses = [];
     const uniqueAmounts = [];
 
@@ -57,6 +88,8 @@ const Disperse = () => {
   };
 
   const combineBalances = () => {
+    setError(null);
+    setIsError(false);
     const combinedBalances = {};
 
     addresses.forEach((address, index) => {
@@ -91,25 +124,53 @@ const Disperse = () => {
           onChange={(e) => setInputText(e.target.value)}
           placeholder="Enter addresses and amounts (e.g., 0x8B3392483BA26D65E331dB86D4F430E9B3814E5e 15)"
         />
+
+        {isError && isError !== null && (
+          <div className="outer">
+            <p className="">Duplicated</p>
+            <div className="btn_one">
+              <button onClick={keepFirstOne} className="btn">
+                Keep the First One
+              </button>
+              <hr />
+              <button onClick={combineBalances} className="btn">
+                Combine Balances
+              </button>
+            </div>
+          </div>
+        )}
+        {error && (
+          <p id="error">
+            {"ⓘ"}
+            <div style={{ textAlign: "center", margin: "auto" }}>{error}</div>
+          </p>
+        )}
+        {!error && error !== null && <p id="success">SUCCESS ✅</p>}
+
+        {!error && inputText.length > 0 && (
+          <div>
+            <ol>
+              {addresses.map((address, index) => (
+                <li key={index}>
+                  {address}: {amounts[index]}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit">Next</button>
         </div>
       </form>
-      {error && <p id="error">{error}</p>}
-      <div>
-        <button onClick={keepFirstOne}>Keep First Occurrence</button>
-        <button onClick={combineBalances}>Combine Balances</button>
-      </div>
-      <h3>Address:</h3>
-      <ul>
-        {addresses.map((address, index) => (
-          <li key={index}>
-            {address}: {amounts[index]}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
 
 export default Disperse;
+
+        
+      
+
+  
+
+    
