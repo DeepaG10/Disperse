@@ -5,7 +5,7 @@
   color: black;
   font-weight: bold;
   width: 61%;
-  height: 30vh;
+  height: 50vh;
   padding: 20px 9px 20px 60px;
   line-height: 25px;
   font-size: 15px;
@@ -92,7 +92,7 @@ ol {
   color: grey;
 }
 .line {
-  height: 30vh;
+  height: 50vh;
   background: grey;
   width: 1px;
   transform: translate(216px, 18px);
