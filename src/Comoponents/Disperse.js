@@ -34,23 +34,29 @@ const Disperse = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let lines;
-    if (inputText.includes(",")) {
-      lines = inputText.trim().split(",");
-    }
-    if (inputText.includes(",")) {
-      lines = inputText.trim().split("=");
-    } else {
-      lines = inputText.trim().split("\n");
-    }
+    let lines=inputText.trim().split("\n");
 
     const newAddresses = [];
     const newAmounts = [];
     let newError = null;
 
     lines.forEach((line, index) => {
-      const [address, amount] = line.trim().split(" ");
-
+      let address, amount;
+      if (line.includes("=")) {
+        const [addresss, amountt] = line.trim().split("=");
+        address = addresss;
+        amount = amountt;
+      }
+      if (line.includes(",")) {
+        const [addresss, amountt] = line.trim().split(",");
+        address = addresss;
+        amount = amountt;
+      }
+      if (line.includes(" ")) {
+        const [addresss, amountt] = line.trim().split(" ");
+        address = addresss;
+        amount = amountt;
+      }
       if (!isValidAddress(address)) {
         newError = `Error on line ${index + 1}: Invalid address format`;
         return;
