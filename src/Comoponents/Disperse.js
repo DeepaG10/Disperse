@@ -26,6 +26,7 @@ const Disperse = () => {
     const duplicateLines = [];
     for (const address in duplicateMap) {
       if (duplicateMap[address].length > 1) {
+        setIsError(true);
         const linesText = duplicateMap[address].join(",");
         duplicateLines.push(
           `Address ${address} Encountered Duplicate at Line: ${linesText}`
@@ -35,14 +36,12 @@ const Disperse = () => {
 
     if (duplicateLines.length > 0) {
       setError(<pre>{duplicateLines.join("\n")}</pre>);
-    } else {
-      setError(null);
     }
   }, [addresses]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setIsError(false);
     let lines = inputText.trim().split("\n");
 
     const newAddresses = [];
@@ -83,8 +82,7 @@ const Disperse = () => {
     if (newError) {
       setError(newError);
     } else {
-      setError("");
-      setIsError(false);
+      setError(null);
       setAddresses(newAddresses);
       setAmounts(newAmounts);
     }
@@ -92,7 +90,7 @@ const Disperse = () => {
 
   const keepFirstOne = () => {
     setError(null);
-    setIsError(false);
+    setIsError(null);
     const uniqueAddresses = [];
     const uniqueAmounts = [];
 
@@ -109,7 +107,7 @@ const Disperse = () => {
 
   const combineBalances = () => {
     setError(null);
-    setIsError(false);
+    setIsError(null);
     const combinedBalances = {};
 
     addresses.forEach((address, index) => {
@@ -170,10 +168,12 @@ const Disperse = () => {
         {error && (
           <p id="error">
             {"ⓘ"}
-            <div style={{ textAlign: "center", margin: "auto" }}>{error}</div>
+            <div style={{ textAlign: "start", margin: "auto 6%" }}>{error}</div>
           </p>
         )}
-        {!error && error !== null && <p id="success">SUCCESS ✅</p>}
+        {!isError && isError !== null && !error && (
+          <p id="success">SUCCESS ✅</p>
+        )}
 
         {!error && inputText.length > 0 && (
           <div>
@@ -195,18 +195,3 @@ const Disperse = () => {
 };
 
 export default Disperse;
-
-        
-
-
-        
-   
- 
-
-  
-
-      
-
-  
-
-    
