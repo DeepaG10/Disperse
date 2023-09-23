@@ -14,20 +14,29 @@ const Disperse = () => {
   };
 
   useEffect(() => {
-    let duplicate = [];
-    for (let i = 0; i < addresses.length; i++) {
-      for (let j = i + 1; j < addresses.length; j++) {
-        if (addresses[i] === addresses[j]) {
-          setIsError(true);
-          let dup = `Address ${addresses[i]} Encountered Duplicate at Line: ${
-            i + 1
-          }, ${j + 1}   `;
-          duplicate.push(dup);
-        }
+    const duplicateMap = {};
+    addresses.forEach((address, index) => {
+      if (!duplicateMap[address]) {
+        duplicateMap[address] = [index + 1];
+      } else {
+        duplicateMap[address].push(index + 1);
+      }
+    });
+
+    const duplicateLines = [];
+    for (const address in duplicateMap) {
+      if (duplicateMap[address].length > 1) {
+        const linesText = duplicateMap[address].join(",");
+        duplicateLines.push(
+          `Address ${address} Encountered Duplicate at Line: ${linesText}`
+        );
       }
     }
-    if (duplicate.length > 0) {
-      setError(duplicate);
+
+    if (duplicateLines.length > 0) {
+      setError(<pre>{duplicateLines.join("\n")}</pre>);
+    } else {
+      setError(null);
     }
   }, [addresses]);
 
