@@ -43,7 +43,7 @@ const Disperse = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let lines=inputText.trim().split("\n");
+    let lines = inputText.trim().split("\n");
 
     const newAddresses = [];
     const newAmounts = [];
@@ -196,11 +196,15 @@ const Disperse = () => {
 
 export default Disperse;
 
-  
+        
 
-   
 
         
+   
+ 
+
+  
+
       
 
   
